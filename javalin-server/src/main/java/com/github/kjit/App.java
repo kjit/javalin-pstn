@@ -17,7 +17,9 @@ public class App {
 
     public static void main(String[] args) {
 
-        Javalin app = Javalin.create().start(7000);
+        Javalin app = Javalin.create()
+                .enableCorsForAllOrigins()
+                .enableStaticFiles("static-files");
         app.get("/", ctx -> ctx.result("Hello there"))
                 .routes(() -> {
                             path("users", () -> {
@@ -31,6 +33,7 @@ public class App {
         app.exception(IllegalArgumentException.class,
                 (exception, ctx) -> ctx.status(410)
                         .json(new Message(exception.toString(), 410)));
+        app.start(7000);
         LOGGER.info("Application started");
     }
 }

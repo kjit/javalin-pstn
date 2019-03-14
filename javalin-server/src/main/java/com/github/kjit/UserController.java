@@ -31,16 +31,14 @@ public class UserController implements CrudHandler {
     @Override
     public void getAll(@NotNull Context context) {
         LOGGER.info("GetAll");
-        throw new IllegalArgumentException("Invalid empty argument");
-//        context.json(userDao.getAllUsers());
+        context.json(userDao.getAllUsers());
     }
 
     @Override
     public void getOne(@NotNull Context context, @NotNull String s) {
         LOGGER.info("get one {}", s);
         int id = Integer.valueOf(s);
-        userDao.delete(id);
-        context.json(new Message("Used deleted", id));
+        context.json(userDao.getOne(id));
     }
 
     @Override
