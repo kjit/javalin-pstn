@@ -31,7 +31,8 @@ public class UserController implements CrudHandler {
     @Override
     public void getAll(@NotNull Context context) {
         LOGGER.info("GetAll");
-        context.json(userDao.getAllUsers());
+        throw new IllegalArgumentException("Invalid empty argument");
+//        context.json(userDao.getAllUsers());
     }
 
     @Override

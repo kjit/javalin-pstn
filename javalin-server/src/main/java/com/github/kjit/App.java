@@ -1,5 +1,6 @@
 package com.github.kjit;
 
+import com.github.kjit.dto.Message;
 import io.javalin.Javalin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +28,9 @@ public class App {
                             );
                         }
                 );
+        app.exception(IllegalArgumentException.class,
+                (exception, ctx) -> ctx.status(410)
+                        .json(new Message(exception.toString(), 410)));
         LOGGER.info("Application started");
     }
 }
-q
