@@ -13,7 +13,6 @@ public class UserController implements CrudHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
     private UserDao userDao = new UserDao();
 
-
     @Override
     public void create(@NotNull Context context) {
         LOGGER.info("create");
