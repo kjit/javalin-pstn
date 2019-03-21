@@ -2,6 +2,7 @@ package com.github.kjit;
 
 import com.github.kjit.dto.Message;
 import io.javalin.Javalin;
+import io.javalin.staticfiles.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,8 +19,8 @@ public class App {
     public static void main(String[] args) {
 
         Javalin app = Javalin.create()
-                .enableCorsForAllOrigins()
-                .enableStaticFiles("static-files");
+                .enableCorsForOrigin("")
+                .enableStaticFiles("static-files", Location.CLASSPATH);
         app.get("/", ctx -> ctx.result("Hello there"))
                 .routes(() -> {
                             path("users", () -> {

@@ -18,6 +18,7 @@ public class UserController implements CrudHandler {
         LOGGER.info("create");
         UserDto userDto = context.bodyAsClass(UserDto.class);
         userDao.create(userDto);
+        context.json(new Message(userDto.getName(), userDto.getId()));
     }
 
     @Override

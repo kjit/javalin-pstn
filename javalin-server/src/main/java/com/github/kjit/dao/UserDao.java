@@ -1,7 +1,6 @@
 package com.github.kjit.dao;
 
 import com.github.kjit.dto.UserDto;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,5 +31,4 @@ public class UserDao {
     public void update(UserDto userDto) {
         users.put(userDto.getId(), userDto);
     }
-
 }
