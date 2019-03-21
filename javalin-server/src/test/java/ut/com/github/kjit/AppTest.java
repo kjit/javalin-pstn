@@ -1,4 +1,4 @@
-package com.githun.kjit;
+package ut.com.github.kjit;
 
 import static org.junit.Assert.assertTrue;
 
