@@ -15,6 +15,7 @@ public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
     private static UserController userController = new UserController();
+    private static CatController catController = new CatController();
 
     public static void main(String[] args) {
 
@@ -29,8 +30,11 @@ public class App {
                                         crud("crud/:user-id", userController);
                                     }
                             );
+                            crud("cats/:cat-id", catController);
                         }
                 );
+
+
         app.exception(IllegalArgumentException.class,
                 (exception, ctx) -> ctx.status(410)
                         .json(new Message(exception.toString(), 410)));
